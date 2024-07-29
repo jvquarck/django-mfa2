@@ -3,10 +3,7 @@ import importlib
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from .models import *
-try:
-    from django.urls import reverse
-except:
-    from django.core.urlresolvers import reverse  # pyre-ignore[21]
+from django.urls import reverse
 from django.template.context_processors import csrf
 from django.template.context import RequestContext
 from django.conf import settings
