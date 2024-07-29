@@ -30,10 +30,7 @@ def start(request):
             uk.enabled=1
             uk.save()
             from django.http import HttpResponseRedirect
-            try:
-                from django.core.urlresolvers import reverse
-            except:
-                from django.urls import reverse
+            from django.urls import reverse
             if getattr(settings, 'MFA_ENFORCE_RECOVERY_METHOD', False) and not User_Keys.objects.filter(
                     key_type="RECOVERY", username=request.user.username).exists():
                 request.session["mfa_reg"] = {"method": "Email",
